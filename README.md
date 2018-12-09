@@ -1,4 +1,4 @@
-# sensoray-testing
+# Sensoray 1012 V4l2 API capture example.
 Capture example using V4L API. 
 
 8-channel frame grabber with audio capture | Model 1012 
@@ -7,6 +7,8 @@ Capture example using V4L API.
 * 8 audio inputs captured to PCM
 * Real-time image resize and H/V flip
 * Ultra-compact footprint
+
+ <img src="http://www.sensoray.com/assets/images/1012_photo.jpg" alt="Sensoray 1012"> 
 
 This example is based on the V4L2 capture example and has been modified to work with the Sensoray 1012 mini PCIe capture card.
 This was tested on the Nvidia Jetson AGX Xavier SoM.
