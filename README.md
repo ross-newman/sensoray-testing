@@ -23,7 +23,38 @@ To capture 100 frames and pipe them to a file use:
 To rebuild and run a simple test script is provided [capture-test.sh](capture-test.sh).
 
 The test platform was the Nvidia Jetson AGX Xavier with the framegrabber installed into the PCIe slot. For testing the [StarTech PCIe to mPCIe](https://www.startech.com/uk/Cards-Adapters/Slot-Extension/PCI-Express-to-Mini-PCI-Express-Card-Adapter~PEX2MPEX) interposer was used.
-
+## Probing
+You can probe your capture interfaces using v4l2-ctl, I was using PAL cameras:
+```
+nvidia@jetson-0423418010151:~/sensoray$ v4l2-ctl -d /dev/video1 -D -V
+Driver Info (not using libv4l2):
+	Driver name   : TW6869
+	Card type     : TW6869
+	Bus info      : PCI:0003:01:00.0
+	Driver version: 4.9.108
+	Capabilities  : 0x85200001
+		Video Capture
+		Read/Write
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps   : 0x05200001
+		Video Capture
+		Read/Write
+		Streaming
+		Extended Pix Format
+Format Video Capture:
+	Width/Height      : 704/576
+	Pixel Format      : 'YUYV'
+	Field             : Interlaced
+	Bytes per Line    : 1408
+	Size Image        : 811008
+	Colorspace        : SMPTE 170M
+	Transfer Function : Default (maps to Rec. 709)
+	YCbCr/HSV Encoding: Default (maps to ITU-R 601)
+	Quantization      : Default (maps to Limited Range)
+	Flags             : 
+```
 # Links
 * http://www.sensoray.com
 * http://www.sensoray.com/products/1012.htm
