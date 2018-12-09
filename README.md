@@ -23,6 +23,13 @@ To capture 100 frames and pipe them to a file use:
 To rebuild and run a simple test script is provided [capture-test.sh](capture-test.sh).
 
 The test platform was the Nvidia Jetson AGX Xavier with the framegrabber installed into the PCIe slot. For testing the [StarTech PCIe to mPCIe](https://www.startech.com/uk/Cards-Adapters/Slot-Extension/PCI-Express-to-Mini-PCI-Express-Card-Adapter~PEX2MPEX) interposer was used.
+
+Decode .yuv file with vlc:
+ vlc --demux rawvideo --rawvid-fps 25 --rawvid-width 704 --rawvid-height 576 --rawvid-chroma UYVY input.yuv  
+
+Decode .yuv file with Gstreamer1.0:
+ gst-launch-1.0 filesrc location=./input.yuv ! videoparse height=576 width=704 format=uyvy framerate=1/25 ! queue ! videoconvert ! xvimagesink sync=false
+
 ## Probing
 You can probe your capture interfaces using v4l2-ctl, I was using PAL cameras:
 ```
